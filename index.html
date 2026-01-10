@@ -1,92 +1,119 @@
-<body>
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>General Takaful Consultant</title>
 
-<!-- NAVBAR -->
-<header class="navbar">
-  <div class="logo">Ruzaz Takaful</div>
-  <nav>
-    <a href="#home">Utama</a>
-    <a href="#services">Perlindungan</a>
-    <a href="#about">Tentang Kami</a>
-    <a href="#contact">Hubungi</a>
-  </nav>
-</header>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-overlay"></div>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <div class="hero-container">
-    <div class="hero-text">
-      <h1>
-        Perlindungan Takaful <br />
-        Untuk Anda & Keluarga
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: {
+          sans: ['Poppins', 'sans-serif'],
+        },
+        extend: {
+          colors: {
+            primary: '#0f766e',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+  <!-- HERO -->
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-24 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        Perlindungan Takaful <span class="text-primary">Mudah & Dipercayai</span>
       </h1>
-
-      <p>
-        Perlindungan kenderaan, perjalanan dan harta benda
-        dengan khidmat ejen berpengalaman & dipercayai.
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
+        Perlindungan perubatan, kenderaan dan harta anda dengan pelan takaful terbaik.
       </p>
+      <a href="https://wa.me/60123456789"
+         class="inline-block bg-primary text-white px-8 py-4 rounded-xl text-lg font-medium shadow-lg hover:opacity-90">
+        WhatsApp Sekarang
+      </a>
+    </div>
+  </section>
 
-      <div class="hero-buttons">
-        <a
-          href="https://wa.me/60123456789"
-          class="btn-primary"
-          target="_blank"
-        >
-          Dapatkan Sebut Harga
-        </a>
+  <!-- SERVICES -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-12">
+        Perkhidmatan Kami
+      </h2>
 
-        <a href="#services" class="btn-secondary">
-          Lihat Perlindungan
-        </a>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow">
+          <h3 class="text-xl font-semibold mb-3">Medical Takaful</h3>
+          <p class="text-slate-600">Perlindungan kos rawatan & hospital.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow">
+          <h3 class="text-xl font-semibold mb-3">Motor Takaful</h3>
+          <p class="text-slate-600">Lindungi kenderaan anda dengan mudah.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow">
+          <h3 class="text-xl font-semibold mb-3">Harta & Rumah</h3>
+          <p class="text-slate-600">Perlindungan rumah & aset penting.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- WHY US -->
+  <section class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-12">
+        Kenapa Pilih Kami
+      </h2>
 
-<!-- SERVICES -->
-<section class="services" id="services">
-  <h2>Pelan Perlindungan Kami</h2>
-
-  <div class="service-cards">
-    <div class="card">
-      <h3>Takaful Kenderaan</h3>
-      <p>Perlindungan kereta & motosikal.</p>
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div>
+          <h3 class="font-semibold text-lg mb-2">Dipercayai</h3>
+          <p class="text-slate-600">Khidmat profesional & telus.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-2">Proses Mudah</h3>
+          <p class="text-slate-600">Cepat & tanpa kerumitan.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-2">Khidmat Nasihat</h3>
+          <p class="text-slate-600">Bantu pilih pelan sesuai.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Takaful Perjalanan</h3>
-      <p>Perlindungan semasa melancong.</p>
+  <!-- CTA -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-6">
+        Dapatkan Sebut Harga Hari Ini
+      </h2>
+      <a href="https://wa.me/60123456789"
+         class="inline-block bg-primary text-white px-10 py-4 rounded-xl text-lg shadow-lg">
+        Hubungi Sekarang
+      </a>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Takaful Harta</h3>
-      <p>Rumah & premis perniagaan.</p>
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-300 py-8">
+    <div class="text-center text-sm">
+      © 2026 General Takaful Consultant. All rights reserved.
     </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <h2>Tentang Kami</h2>
-  <p>
-    Kami adalah ejen takaful berdaftar yang komited
-    memberi khidmat nasihat dan perlindungan terbaik.
-  </p>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <h2>Hubungi Kami</h2>
-  <p>WhatsApp kami untuk sebut harga pantas.</p>
-  <a href="https://wa.me/60123456789" class="btn-whatsapp">
-    WhatsApp Sekarang
-  </a>
-</section>
-
-<footer>
-  <p>© 2026 Ruzaz Takaful. All rights reserved.</p>
-</footer>
+  </footer>
 
 </body>
+</html>
