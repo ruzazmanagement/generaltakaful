@@ -50,18 +50,22 @@
       <!-- HERO SLIDER -->
       <div class="relative w-full h-[280px] md:h-[360px] rounded-2xl overflow-hidden shadow-lg bg-white">
 
-        <img src="images/hero1.png"
-             class="absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000 slider-img">
+        <!-- Images -->
+        <img src="images/hero1.png" class="absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000 slider-img">
+        <img src="images/hero2.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 slider-img">
+        <img src="images/hero3.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 slider-img">
+        <img src="images/hero4.png" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 slider-img">
 
-        <img src="images/hero2.png"
-             class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 slider-img">
+        <!-- Navigation Buttons -->
+        <button id="prevBtn"
+          class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-800 w-10 h-10 rounded-full shadow flex items-center justify-center">
+          ❮
+        </button>
 
-        <img src="images/hero3.png"
-             class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 slider-img">
-
-        <!-- HERO 4 (BARU) -->
-        <img src="images/hero4.png"
-             class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 slider-img">
+        <button id="nextBtn"
+          class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-800 w-10 h-10 rounded-full shadow flex items-center justify-center">
+          ❯
+        </button>
       </div>
 
     </div>
@@ -99,9 +103,7 @@
   <!-- WHY US -->
   <section class="bg-white py-20">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl font-semibold text-center mb-12">
-        Kenapa Pilih Kami
-      </h2>
+      <h2 class="text-3xl font-semibold text-center mb-12">Kenapa Pilih Kami</h2>
 
       <div class="grid md:grid-cols-3 gap-8 text-center">
         <div>
@@ -120,24 +122,10 @@
     </div>
   </section>
 
-  <!-- RAKAN PANEL -->
-  <section class="py-20 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-semibold mb-12">Rakan Panel Insurans Kami</h2>
-
-      <div class="flex justify-center gap-16 items-center flex-wrap">
-        <img src="images/takaful-malaysia.png" class="h-28 object-contain">
-        <img src="images/etiqa.png" class="h-28 object-contain">
-      </div>
-    </div>
-  </section>
-
   <!-- CTA -->
   <section class="py-20">
     <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-6">
-        Dapatkan Sebut Harga Hari Ini
-      </h2>
+      <h2 class="text-3xl font-bold mb-6">Dapatkan Sebut Harga Hari Ini</h2>
       <a href="https://wa.me/60123456789"
          class="inline-block bg-primary text-white px-10 py-4 rounded-xl text-lg shadow-lg">
         Hubungi Sekarang
@@ -147,25 +135,54 @@
 
   <!-- FOOTER -->
   <footer class="bg-slate-900 text-slate-300 py-8">
-    <div class="text-center text-sm">
-      © 2026 General Takaful Consultant. All rights reserved.
-    </div>
+    <div class="text-center text-sm">© 2026 General Takaful Consultant. All rights reserved.</div>
   </footer>
 
   <!-- SLIDER SCRIPT -->
   <script>
     const slides = document.querySelectorAll('.slider-img');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
     let currentSlide = 0;
+    let sliderInterval;
 
-    setInterval(() => {
-      slides[currentSlide].classList.remove('opacity-100');
-      slides[currentSlide].classList.add('opacity-0');
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('opacity-100', i === index);
+        slide.classList.toggle('opacity-0', i !== index);
+      });
+    }
 
+    function nextSlide() {
       currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
 
-      slides[currentSlide].classList.remove('opacity-0');
-      slides[currentSlide].classList.add('opacity-100');
-    }, 4000);
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function startAutoSlide() {
+      sliderInterval = setInterval(nextSlide, 4000);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(sliderInterval);
+      startAutoSlide();
+    }
+
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      resetAutoSlide();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      resetAutoSlide();
+    });
+
+    startAutoSlide();
   </script>
 
 </body>
